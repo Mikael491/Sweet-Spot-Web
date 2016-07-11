@@ -1,0 +1,7 @@
+%h1 Product Listing
+-@products.each do |product|
+  %div
+    %h3= product.name
+    %ul
+      %li= product.price
+      %li= product.description
