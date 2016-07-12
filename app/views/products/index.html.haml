@@ -6,6 +6,7 @@
     %ul
       %li= product.price
       %li= product.description
+      %li= product.quantity
     = link_to 'Edit', edit_product_path(product)
     = link_to 'Show', product_path(product)
     = link_to 'Delete', product_path(product), method: :delete 
