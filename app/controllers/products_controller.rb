@@ -7,6 +7,8 @@ class ProductsController < ApplicationController
   end
   def create
     @product = Product.new(product_params)
+    p "dd" * 15
+    p @product
     if @product.save
       redirect_to product_path(@product)
     else
@@ -36,7 +38,7 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
   end
   def product_params
-    params.require(:product).permit(:name, :description, :price)
+    params.require(:product).permit(:name, :description, :price, :image)
   end
 
 end
