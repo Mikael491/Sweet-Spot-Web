@@ -20,6 +20,11 @@ class ProductsController < ApplicationController
     # @product = Product(params[id])
   end
   def update
+    if @product.update(product_params)
+      redirect_to root_path
+    else
+      render :edit
+    end
   end
   def destroy
     @product.destroy
