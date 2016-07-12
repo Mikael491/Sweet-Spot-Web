@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 20160711234405) do
     t.string   "price"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
-    t.         "image"
+    t.attachment "image"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
