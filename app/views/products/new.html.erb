@@ -1,0 +1,8 @@
+<h1> Create New Product </h1>
+<% if flash[:success] %>
+<div class="notice">
+	<%=flash[:success]%>
+</div>
+<%end%>
+<%= render 'form'%>
+
