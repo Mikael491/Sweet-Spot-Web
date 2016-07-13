@@ -17,6 +17,7 @@ class ProductsController < ApplicationController
     p "dd" * 15
     p @product
     if @product.save
+      flash[:success] = "Kicks were added successfully!"
       redirect_to product_path(@product)
     else
       render :new
@@ -33,6 +34,8 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
+      flash[:success] = "Kicks were updated successfully!"
+
       redirect_to root_path
     else
       render :edit
@@ -41,6 +44,7 @@ class ProductsController < ApplicationController
   
   def destroy
     @product.destroy
+    flash[:danger] = "Kicks were deleted successfully!"
     redirect_to admin_index_path
   end
 
