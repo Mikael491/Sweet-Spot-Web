@@ -5,7 +5,7 @@ RSpec.feature "Products", type: :feature, js: true do
     let!(:product) { create :product }
     it "should list all products" do
       visit root_path
-      expect(page).to have_content(product.title)
+      expect(page).to have_content(product.name)
   end
 end
   describe 'filling out create product form' do 
