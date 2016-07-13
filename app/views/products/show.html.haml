@@ -1,5 +1,6 @@
 %h1= "#{@product.name}" 
 %div
+  = image_tag @product.image.url(:medium)
   %h3= @product.description
   %p  
     =@product.price 
