@@ -1,6 +1,7 @@
-class ProductsController < ApplicationController
+class AdminController < ApplicationController
 
-  http_basic_authenticate_with name: "admin", password: "secret", only: [:new, :edit, :destroy]
+
+  # http_basic_authenticate_with name: "admin", password: "secret", only: [:new, :edit]
 
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
@@ -8,9 +9,9 @@ class ProductsController < ApplicationController
     @products = Product.all
   end
 
-  def show
-    @product = Product.find(params[:id])
-  end
+  # def show
+  #   @product = Product.find(params[:id])
+  # end
 
   def create
     @product = Product.new(product_params)
@@ -52,5 +53,6 @@ class ProductsController < ApplicationController
   def product_params
     params.require(:product).permit(:name, :description, :price, :image)
   end
+
 
 end
