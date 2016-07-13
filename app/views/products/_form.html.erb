@@ -1,7 +1,7 @@
 <%= simple_form_for @product, html: {multipart: true} do |f|%>
 <%= f.file_field :image %>
-<%= f.input :name %>
+<%= f.input :name%>
 <%= f.input :description %>
-<%= f.input :price %>
+<%= f.input :price, error: "Please enter a valid price with 2 decimal places"%>
 <%= f.button :submit %>
 <% end %>
