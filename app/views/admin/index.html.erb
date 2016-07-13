@@ -1,0 +1,30 @@
+<div class="panel panel-default">
+  <!-- Default panel contents -->
+  <div class="panel-heading">Inventory Management</div>
+ <!--  <div class="panel-body">
+  
+  </div> -->
+
+  <!-- Table -->
+  <table class="table">
+    <tr>
+    	<th>Id</th>
+    	<th>Name</th>
+    	<th>Image</th>
+    	<th>Description</th>
+    	<th>Price</th>
+    	<th>Quantity</th>
+    </tr>
+    <% @products.each do |product| %>
+    <tr>
+    	<td><%=product.id%></td>
+    	<td><%=product.name%></td>
+    	<td class="thumbnail"><%=image_tag product.image.url(:thumb)%></td>
+    	<td><%=product.description%></td>
+    	<td><%=product.price%></td>
+    	<td>14</td>
+    	<td><p><%= link_to 'edit', edit_product_path(product), class: "btn btn-primary" %></p><p><%= link_to 'delete', product_path(product), method: :delete, data: {confirm: "Are you sure?"}, class: "btn btn-danger" %></p></td>	
+    </tr>
+	<%end%>
+  </table>
+</div>
