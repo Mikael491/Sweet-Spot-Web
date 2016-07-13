@@ -1,7 +1,11 @@
-%h1= "#{@product.name}"
-%div
-	= image_tag @product.image.url(:medium)
-	%h3= @product.description
-	%p
-	=@product.price
-	%strong
+
+%div{:class => :row}
+	%div{:class => "col-sm-6 col-md-4"}
+		%div{:class => :thumbnail}
+			= image_tag @product.image.url(:medium)
+			%div{:class => "caption"}
+				%h3= @product.name
+				%p= @product.description
+				%h4= "Price: #{@product.price}"
+				= link_to 'back', root_path, class: "btn btn-default"
+				= link_to 'purchase', root_path, class: "btn btn-success disabled"
