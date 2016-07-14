@@ -35,15 +35,20 @@
     </div><!-- /.navbar-collapse -->
   </div><!-- /.container-fluid -->
 </nav>
-      
-    <% if notice %>
-      <p class="alert alert-success"><%=notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-danger"><%= alert %></p>
-    <% end %>
     
-    <div class="container">
+<div class="container">
+  <% if notice %>
+    <div class="alert alert-success">
+      <button type ="button" class="close" data-dismiss="alert">&times;</button>
+      <%=notice %>
+    </div>
+  <% end %>
+  <% if alert %>
+    <div class="alert alert-danger">
+      <button type ="button" class="close" data-dismiss="alert">&times;</button>
+      <%= alert %>
+    </div>
+  <% end %>
 
     <%= yield %>
     </div>
