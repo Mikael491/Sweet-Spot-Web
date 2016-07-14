@@ -26,6 +26,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @categories = Category.all.map {|category| [category.name, category.id]}
   end
 
   def edit
