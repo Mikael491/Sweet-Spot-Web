@@ -32,5 +32,11 @@ User Stories:
 
 Iteration 3
 
+User Stories:
+  1. User will signup and will be sent a registration link. After confirming the user is able to login and view a listing of products. 
+  2. Admin can edit, delete, and update products. 
+  3. The User can see products classified into categories. The User can filter the product by category.
+
+![schema](/app/assets/images/schema3.png)
 
 
