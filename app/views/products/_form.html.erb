@@ -1,5 +1,6 @@
 <%= simple_form_for @product, html: {multipart: true} do |f|%>
 <%= f.association :categories, as: :check_boxes %>
+<!-- TODO: Create associations with the category(ies) selected -->
 <%= f.file_field :image %>
 <%= f.input :name%>
 <%= f.input :description %>
