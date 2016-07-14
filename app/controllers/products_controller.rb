@@ -1,7 +1,5 @@
 class ProductsController < ApplicationController
-
-  http_basic_authenticate_with name: "admin", password: "secret", only: [:new, :edit, :destroy]
-
+  # http_basic_authenticate_with name: "admin", password: "secret", only: [:new, :edit, :destroy]
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
