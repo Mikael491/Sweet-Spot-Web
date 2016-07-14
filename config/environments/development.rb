@@ -12,9 +12,6 @@ Paperclip.options[:command_path] = "/usr/local/bin/"
   # Show full error reports.
   config.consider_all_requests_local = true
 
-  #Devise
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-
   # Enable/disable caching. By default caching is disabled.
   if Rails.root.join('tmp/caching-dev.txt').exist?
     config.action_controller.perform_caching = true
@@ -44,7 +41,10 @@ Paperclip.options[:command_path] = "/usr/local/bin/"
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
+  #mailing function
+  config.action_mailer.default_url_option = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries =true
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
