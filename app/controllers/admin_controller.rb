@@ -1,8 +1,5 @@
 class AdminController < ApplicationController
-
-
   # http_basic_authenticate_with name: "admin", password: "secret", only: [:new, :edit]
-
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -15,8 +12,6 @@ class AdminController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    p "dd" * 15
-    p @product
     if @product.save
       redirect_to product_path(@product)
     else

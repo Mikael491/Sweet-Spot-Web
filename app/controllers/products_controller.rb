@@ -1,7 +1,5 @@
 class ProductsController < ApplicationController
-
-  http_basic_authenticate_with name: "admin", password: "secret", only: [:new, :edit, :destroy]
-
+  # http_basic_authenticate_with name: "admin", password: "secret", only: [:new, :edit, :destroy]
   before_action :find_product, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -14,10 +12,8 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    p "dd" * 15
-    p @product
     if @product.save
-      flash[:success] = "Kicks were added successfully!"
+      flash[:success] = "Product was added successfully!"
       redirect_to product_path(@product)
     else
       render :new
@@ -26,6 +22,7 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    @categories = Category.all.map {|category| [category.name, category.id]}
   end
 
   def edit
@@ -34,7 +31,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      flash[:success] = "Kicks were updated successfully!"
+      flash[:success] = "Product was updated successfully!"
 
       redirect_to root_path
     else
@@ -50,11 +47,13 @@ class ProductsController < ApplicationController
 
 
   private 
+  
   def find_product
     @product = Product.find(params[:id])
   end
+
   def product_params
-    params.require(:product).permit(:name, :description, :price, :image)
+    params.require(:product).permit(:name, :description, :price, :image, category_ids:[])
   end
 
 end
