@@ -1,5 +1,6 @@
 <%= simple_form_for @product, html: {multipart: true} do |f|%>
 <%= f.file_field :image %>
+<%= f.association :categories, as: :check_boxes %>
 <%= f.input :name%>
 <%= f.input :description %>
 <%= f.input :price, error: "Please enter a valid price with 2 decimal places"%>

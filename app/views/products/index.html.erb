@@ -1,18 +1,41 @@
+<%if current_user.admin%>
+<%= render 'admin/index' %>
+<%else%>
 <div class="row">
-<% @products.each do |product| %>
-	<div class="col-md-3">
-		<div class="thumbnail">
-			<%= image_tag product.image.url(:medium) %>
-			<div class="caption">
-				<h3><%=product.name%></h3>
-				<p><%=product.description%></p>
-				<h4>Price: <%=number_to_currency(product.price)%></h4>
-				<p><%=product.quantity%></p>
-				<p>
-				<%= link_to 'show', product_path(product), class: "btn btn-primary" %>
-				</p>
+	<%if params[:category]%>
+	<%Category.find_by(name: "Shoes").products.each do |product|%>
+			<div class="col-md-3">
+			<div class="thumbnail">
+				<%= image_tag product.image.url(:medium) %>
+				<div class="caption">
+					<h3><%=product.name%></h3>
+					<p><%=product.description%></p>
+					<h4>Price: <%=number_to_currency(product.price)%></h4>
+					<p><%=product.quantity%></p>
+					<p>
+					<%= link_to 'show', product_path(product), class: "btn btn-primary" %>
+					</p>
+				</div>
 			</div>
 		</div>
-	</div>
-<%end%>
+		<%end%>
+	<%else%>
+	<%@products.each do |product| %>
+		<div class="col-md-3">
+			<div class="thumbnail">
+				<%= image_tag product.image.url(:medium) %>
+				<div class="caption">
+					<h3><%=product.name%></h3>
+					<p><%=product.description%></p>
+					<h4>Price: <%=number_to_currency(product.price)%></h4>
+					<p><%=product.quantity%></p>
+					<p>
+					<%= link_to 'show', product_path(product), class: "btn btn-primary" %>
+					</p>
+				</div>
+			</div>
+		</div>
+	<%end%>
+	<%end%>
 </div>
+<%end%>

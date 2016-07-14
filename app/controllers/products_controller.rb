@@ -14,10 +14,8 @@ class ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    p "dd" * 15
-    p @product
     if @product.save
-      flash[:success] = "Kicks were added successfully!"
+      flash[:success] = "Product was added successfully!"
       redirect_to product_path(@product)
     else
       render :new
@@ -35,7 +33,7 @@ class ProductsController < ApplicationController
 
   def update
     if @product.update(product_params)
-      flash[:success] = "Kicks were updated successfully!"
+      flash[:success] = "Product was updated successfully!"
 
       redirect_to root_path
     else
