@@ -41,7 +41,10 @@ Paperclip.options[:command_path] = "/usr/local/bin/"
   # This option may cause significant delays in view rendering with a large
   # number of complex assets.
   config.assets.debug = true
-
+  #mailing function
+  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.perform_deliveries =true
   # Suppress logger output for asset requests.
   config.assets.quiet = true
 
