@@ -7,5 +7,6 @@
 				%h3= @product.name
 				%p= @product.description
 				%h4= "Price: #{number_to_currency(@product.price)}"
+				%h4= "Quantity: #{@product.quantity}"
 				= link_to 'back', root_path, class: "btn btn-default"
 				= link_to 'purchase', root_path, class: "btn btn-success disabled"
